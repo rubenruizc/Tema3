@@ -19,34 +19,27 @@ public class Principal {
 		// Variable donde guardaremos el segundo número del usuario
 		double num2;
 
-		// Bucle que se realizará mientras la opción del usuario no sea 0
-		do {
-			// Le pedimos la opción
-			opcion = menu();
+		// Le pedimos la opción
+		opcion = menu();
+		
+		// Le pedimos el número 1
+		num1 = pideNumero();
 
-			// Condicional si el número del usuario es distinto de 0
-			if (opcion != 0) {
-				// Le pedimos el número 1
-				num1 = pideNumero();
+		// Le pedimos el número 2
+		num2 = pideNumero();
 
-				// Le pedimos el número 2
-				num2 = pideNumero();
+		// Creamos el objeto y le ponemos un nombre y los parametrós que recogerá
+		Operaciones operaciones = new Operaciones(num1, num2);
 
-				// Creamos el objeto y le ponemos un nombre y los parametrós que recogerá
-				Operaciones operaciones = new Operaciones(num1, num2);
-
-				// Condicional para mostrar dependiendo de la opción elegida
-				switch (opcion) {
-				case 1 -> System.out.println("Suma: " + operaciones.suma());
-				case 2 -> System.out.println("Resta: " + operaciones.resta());
-				case 3 -> System.out.println("Multiplicación: " + operaciones.multiplicacion());
-				case 4 -> System.out.println("División: " + operaciones.division());
-				case 5 -> System.out.println("Máximo: " + operaciones.max());
-				case 6 -> System.out.println("Mínimo: " + operaciones.min());
-				}
-			}
-
-		} while (opcion != 0);
+		// Condicional para mostrar dependiendo de la opción elegida
+		switch (opcion) {
+		case 1 -> System.out.println("Suma: " + operaciones.suma());
+		case 2 -> System.out.println("Resta: " + operaciones.resta());
+		case 3 -> System.out.println("Multiplicación: " + operaciones.multiplicacion());
+		case 4 -> System.out.println("División: " + operaciones.division());
+		case 5 -> System.out.println("Máximo: " + operaciones.max());
+		case 6 -> System.out.println("Mínimo: " + operaciones.min());
+		}
 
 		// Cerramos el scanner al final del programa
 		sc.close();
@@ -55,6 +48,7 @@ public class Principal {
 
 	// Función que mostrará al usuario el menú con las distintas opciones
 	public static int menu() {
+		int opcion;
 		System.out.println();
 		System.out.println("Menú:");
 		System.out.println("1. Suma");
@@ -65,7 +59,6 @@ public class Principal {
 		System.out.println("6. Mínimo");
 		System.out.println("0. Salir");
 		System.out.println();
-		int opcion;
 
 		// Bucle que se realizara mientras la opción del usuario sea entre 0 y 6
 		do {

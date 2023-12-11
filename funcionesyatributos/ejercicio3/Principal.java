@@ -1,5 +1,6 @@
 package ejercicio3;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Principal {
@@ -43,17 +44,57 @@ public class Principal {
 		System.out.println("1.Circunferencia");
 		System.out.println("2.Área");
 		System.out.println("0.Salir");
-		System.out.print("Elija una opción: ");
-		op = sc.nextInt();
+
+		do {
+
+			System.out.print("Elija una opción: ");
+
+			try {
+
+				op = sc.nextInt();
+
+				if (op < 0 || op > 2) {
+
+					System.out.println("Opción no válida. Introduce un número del menú.");
+
+				}
+
+			} catch (InputMismatchException e) {
+
+				System.out.println("Error: Debes introducir un número entero.");
+
+				sc.nextLine(); // Limpiar el buffer del scanner
+
+				op = -1;
+			}
+
+		} while (op < 0 || op > 2);
 		return op;
 	}
 
 	// Función que le pedira al usuario el radio deseado
 	public static double pideRadio() {
 		double radio = 0;
-		System.out.print("Elija un radio: ");
-		radio = sc.nextDouble();
+		boolean valido = false;
+
+		do {
+
+			System.out.println("Introduzca el radio: ");
+
+			try {
+
+				radio = sc.nextDouble();
+
+				valido = true;
+
+			} catch (InputMismatchException e) {
+
+				System.out.println("Error: Debes introducir un número válido.");
+
+				sc.nextLine(); // Limpiar el buffer del scanner
+			}
+		} while (!valido || radio < 0);
+		
 		return radio;
 	}
-
 } // Cierre de la clase

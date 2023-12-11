@@ -1,5 +1,6 @@
 package ejercicio4;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Principal {
@@ -49,24 +50,86 @@ public class Principal {
 		System.out.println("1.Volumen");
 		System.out.println("2.Área");
 		System.out.println("0.Salir");
-		System.out.println("Elija una opción: ");
-		op = sc.nextInt();
+		
+		do {
+
+			System.out.print("Elija una opción: ");
+
+			try {
+
+				op = sc.nextInt();
+
+				if (op < 0 || op > 2) {
+
+					System.out.println("Opción no válida. Introduce un número del menú.");
+
+				}
+
+			} catch (InputMismatchException e) {
+
+				System.out.println("Error: Debes introducir un número entero.");
+
+				sc.nextLine(); // Limpiar el buffer del scanner
+
+				op = -1;
+			}
+
+		} while (op < 0 || op > 2);
 		return op;
 	}
 
 	// Función que le pedira al usuario el radio de la base deseado
 	public static double pideRadioBase() {
-		double radioBase;
-		System.out.println("Elija el radio de la base: ");
-		radioBase = sc.nextDouble();
+		double radioBase=0;
+		boolean valido = false;
+		do {
+
+			System.out.println("Introduzca el radio: ");
+
+			try {
+
+				radioBase = sc.nextDouble();
+
+				valido = true;
+				
+				if (radioBase <0) {
+					System.out.println("Opción no válida. Introduce un número entero");
+					valido = false;
+				}
+				
+			} catch (InputMismatchException e) {
+
+				System.out.println("Error: Debes introducir un número válido.");
+
+				sc.nextLine(); // Limpiar el buffer del scanner
+			}
+		} while (!valido || radioBase < 0);
+		
 		return radioBase;
 	}
 
 	// Función que le pedira al usuaerio la altura deseada
 	public static double altura() {
-		double altura;
-		System.out.println("Elija la altura: ");
-		altura = sc.nextDouble();
+		double altura=0;
+		boolean valido = false;
+		do {
+
+			System.out.println("Introduzca la altura: ");
+
+			try {
+
+				altura = sc.nextDouble();
+
+				valido = true;
+
+			} catch (InputMismatchException e) {
+
+				System.out.println("Error: Debes introducir un número válido.");
+
+				sc.nextLine(); // Limpiar el buffer del scanner
+			}
+		} while (!valido || altura < 0);
+		
 		return altura;
 	}
 
