@@ -5,6 +5,12 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="src" path="src"/>
+=======
+	<classpathentry kind="src" path="funciones"/>
+	<classpathentry kind="src" path="funcionessobrecarga"/>
+	<classpathentry kind="src" path="funcionesyatributos"/>
+>>>>>>> branch 'master' of https://github.com/rubenruizc/Tema3.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>
